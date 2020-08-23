@@ -38,19 +38,31 @@ public class Player : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.W)) // Move up when the W key is pressed
             {
-                pos += Vector2.up;
+                if (pos.y < 5)
+                {
+                    pos += Vector2.up;
+                }
             }
             else if (Input.GetKeyDown(KeyCode.S)) // Move down when the S key is pressed
             {
-                pos += Vector2.down;
+                if (pos.y > -5)
+                {
+                    pos += Vector2.down;
+                }
             }
             else if (Input.GetKeyDown(KeyCode.A))
             {
-                pos += Vector2.left;
+                if (pos.x > -2)
+                {
+                    pos += Vector2.left;
+                }
             }
             else if (Input.GetKeyDown(KeyCode.D))
             {
-                pos += Vector2.right;
+                if (pos.x < 2)
+                {
+                    pos += Vector2.right;
+                }
             }
 
             transform.localPosition = pos;

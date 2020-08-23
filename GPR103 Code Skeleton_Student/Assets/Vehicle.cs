@@ -18,14 +18,11 @@ public class Vehicle : MonoBehaviour
     public Vector2 startingPosition; //This variable is to be used to indicate where on the map the vehicle starts (or spawns)
     public Vector2 endPosition; //This variablle is to be used to indicate the final destination of the vehicle.
 
-    public bool otherWay;
-
 
     // Start is called before the first frame update
     void Start()
     {
         this.transform.position = startingPosition;
-        //otherWay = true;
     }
 
     // Update is called once per frame
@@ -55,18 +52,6 @@ public class Vehicle : MonoBehaviour
                 transform.position = startingPosition;
             }
 
-        //else if (otherWay == true)
-        //{
-        //    this.transform.position = endPosition;
-        //    moveDirection = 1;
-        //    speed = 5f;
-        //    transform.Translate(Vector2.right * Time.deltaTime * speed * moveDirection);
-
-        //    if ((transform.position.x * moveDirection) > (endPosition.x * moveDirection))
-        //    {
-        //        transform.position = endPosition;
-        //    }
-        //}
     }
 
     private void OnTriggerEnter2d(Collider2D collision)
