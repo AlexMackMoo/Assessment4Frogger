@@ -22,15 +22,21 @@ public class GameManager : MonoBehaviour
     public float totalGameTime; //The maximum amount of time or the total time avilable to the player.
     public float gameTimeRemaining; //The current elapsed time
 
+    private const float MYTIME = 60f;
+    private float tempTime;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        tempTime = MYTIME;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (tempTime >= 0)
+            tempTime -= Time.deltaTime() * 10;
+        else
+            tempTime = MYTIME;
     }
 }
