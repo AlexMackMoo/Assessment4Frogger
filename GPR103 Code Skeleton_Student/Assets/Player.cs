@@ -10,49 +10,57 @@ public class Player : MonoBehaviour
 {
     public string playerName = ""; //The players name for the purpose of storing the high score
    
-    public int playerTotalLives = 3; //Players total possible lives.
+    public int playerTotalLives; //Players total possible lives.
     public int playerLivesRemaining; //PLayers actual lives remaining.
+    public int movementSpeed = 1;
     
-    public bool playerIsHit = false;
-    public bool playerIsAlive = true; //Is the player currently alive?
-    public bool playerCanMove = false; //Can the player currently move?
+    public bool playerIsHit;
+    public bool playerIsAlive; //Is the player currently alive?
+    public bool playerCanMove; //Can the player currently move?
 
     private GameManager myGameManager; //A reference to the GameManager in the scene.
 
     // Start is called before the first frame update
     void Start()
     {
+        playerIsAlive = true;
+        playerCanMove = true;
+        playerTotalLives = 3;
         playerLivesRemaining = playerTotalLives;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (playerIsAlive = true;)
+        if (playerIsAlive == true)
         {
+            Vector2 pos = transform.localPosition;
+
             if (Input.GetKeyDown(KeyCode.W)) // Move up when the W key is pressed
             {
-                transform.Translate(Vector2.up * Time.deltaTime * movementSpeed);
+                pos += Vector2.up;
             }
             else if (Input.GetKeyDown(KeyCode.S)) // Move down when the S key is pressed
             {
-                transform.Translate(-Vector2.down * Time.deltaTime * movementSpeed);
+                pos += Vector2.down;
             }
             else if (Input.GetKeyDown(KeyCode.A))
             {
-                transform.Translate(Vector2.left * Time.deltaTime * movementSpeed);
+                pos += Vector2.left;
             }
             else if (Input.GetKeyDown(KeyCode.D))
             {
-                transform.Translate(-Vector2.right * Time.deltaTime * movementSpeed);
+                pos += Vector2.right;
             }
+
+            transform.localPosition = pos;
         }
 
-        if (playerIsHit = true;)
+        if (playerIsHit == true)
         {
-            playerLivesReamining -= 1;
+            playerLivesRemaining -= 1;
 
-            if (playerLivesRemaining = 0)
+            if (playerLivesRemaining == 0)
             {
                 playerIsAlive = false;
                 return;

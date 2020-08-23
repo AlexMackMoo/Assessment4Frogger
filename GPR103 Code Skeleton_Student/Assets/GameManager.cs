@@ -17,26 +17,44 @@ public class GameManager : MonoBehaviour
     public float levelConstraintLeft; //The maximum negative X value of the playable space.
     public float levelConstraintRight; //The maximum positive X value of the playablle space.
 
+    [Header("StartScreen")]
+    public bool gameIsRunning;
+
     [Header("Gameplay Loop")]
-    public bool isGameRunning; //Is the gameplay part of the game current active?
+    public bool gameHasStarted; //Is the gameplay part of the game current active?
     public float totalGameTime; //The maximum amount of time or the total time avilable to the player.
     public float gameTimeRemaining; //The current elapsed time
 
-    private const float MYTIME = 60f;
-    private float tempTime;
 
     // Start is called before the first frame update
     void Start()
     {
-        tempTime = MYTIME;
+        gameIsRunning = true;
+        levelConstraintTop = 96; 
+        levelConstraintBottom = 96;
+        levelConstraintLeft = 96; 
+        levelConstraintRight = 96;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (tempTime >= 0)
-            tempTime -= Time.deltaTime() * 10;
-        else
-            tempTime = MYTIME;
+       if (gameIsRunning == true)
+        {
+            print("Welcome to the game. Press space to start.");
+            print("Press Escape to exit.");
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                gameHasStarted = true;
+            }
+
+            else if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                print("Goodbye");
+                gameIsRunning = false;
+                return;
+            }
+        }
     }
 }
