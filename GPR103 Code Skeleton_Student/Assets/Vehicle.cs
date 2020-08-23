@@ -28,6 +28,7 @@ public class Vehicle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (transform.position.y == -4)
         {
             speed = 5f;

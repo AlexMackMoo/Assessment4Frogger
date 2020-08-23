@@ -30,10 +30,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         gameIsRunning = true;
-        levelConstraintTop = 96; 
-        levelConstraintBottom = 96;
-        levelConstraintLeft = 96; 
-        levelConstraintRight = 96;
     }
 
     // Update is called once per frame
