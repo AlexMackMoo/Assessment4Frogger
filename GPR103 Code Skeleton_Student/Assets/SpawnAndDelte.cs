@@ -22,22 +22,22 @@ public class SpawnAndDelte : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timeCount -= Time.deltaTime * 3f;
-        if (timeCount <= 0)
-        {
-            do
-            {
-                for (int i = 0; i < 1; i++)
-                {
-                    Instantiate(Car1);
-                    amountOfEnemy += 1;
-                }
-            } while (amountOfEnemy <= 1);
-        }
+        //timeCount -= Time.deltaTime * 3f;
+        //if (timeCount <= 0)
+        //{
+        //    do
+        //    {
+        //        for (int i = 0; i < 3; i++)
+        //        {
+        //            Instantiate(Car1);
+        //            amountOfEnemy += 1;
+        //        }
+        //    } while (amountOfEnemy <= 3);
+        //}
 
-        if (transform.position.x == -10)
-        {
-            Destroy(this.gameObject);
-        }
+        //if (transform.position.x == -10)
+        //{
+        //    Destroy(this.gameObject);
+        //}
     }
 }

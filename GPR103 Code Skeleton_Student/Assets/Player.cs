@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEditor.ShortcutManagement;
 using UnityEngine;
 
@@ -13,7 +14,7 @@ public class Player : MonoBehaviour
     public int playerTotalLives; //Players total possible lives.
     public int playerLivesRemaining; //PLayers actual lives remaining.
     public int movementSpeed = 1;
-    
+
     public bool playerIsHit;
     public bool playerIsAlive; //Is the player currently alive?
     public bool playerCanMove; //Can the player currently move?
@@ -67,15 +68,25 @@ public class Player : MonoBehaviour
 
             transform.localPosition = pos;
         }
+    }
 
-        if (playerIsHit == true)
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (playerIsAlive)
         {
-            playerLivesRemaining -= 1;
-
-            if (playerLivesRemaining == 0)
+            if (collision.transform.parent.GetComponent<Vehicle>() != null)
             {
-                playerIsAlive = false;
-                return;
+
+                playerLivesRemaining -= 1;
+                print("Ouch");
+                playerCanMove = false;
+
+                if (playerLivesRemaining == 0)
+                {
+                    playerIsAlive = false;
+                    return;
+                }
+
             }
         }
     }
