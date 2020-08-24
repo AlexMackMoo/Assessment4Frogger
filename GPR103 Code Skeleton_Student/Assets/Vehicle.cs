@@ -28,7 +28,24 @@ public class Vehicle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        speed = 7f;
+        if (transform.position.y == -1)
+        {
+            speed = 2f;
+        }
+        if (transform.position.y == -2)
+        {
+            speed = 8f;
+        }
+        if (transform.position.y == -3)
+        {
+            speed = 14f;
+        }
+        if (transform.position.y == -4)
+        {
+            speed = 5f;
+        }
+
+        //speed = 7f;
         moveDirection = -1;
         transform.Translate(Vector2.right * Time.deltaTime * speed * moveDirection);
 
@@ -40,10 +57,7 @@ public class Vehicle : MonoBehaviour
 
     private void OnTriggerEnter2d(Collider2D collision)
     {
-        //if (collision.transform.GetComponent<Player>() != null)
-        //{
-        //    transform.position = startingPosition;
-        //}
+       
     }
 
 }

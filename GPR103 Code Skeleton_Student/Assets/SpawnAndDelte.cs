@@ -1,43 +1,47 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class SpawnAndDelte : MonoBehaviour
 {
     [Header ("Setting the object")]
-    public int amountOfEnemy;
     public GameObject Car1;
 
     [Header("Managing time")]
-    public const float TTL = 5;
-    private float timeCount;
+    public float spawnTimer;
+    public float timer;
+    public float deleteTimer;
+    public float secondTimer;
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        amountOfEnemy = 0;
-        timeCount = TTL;
+        spawnTimer = 2f;
+        deleteTimer = 6f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //timeCount -= Time.deltaTime * 3f;
-        //if (timeCount <= 0)
-        //{
-        //    do
-        //    {
-        //        for (int i = 0; i < 3; i++)
-        //        {
-        //            Instantiate(Car1);
-        //            amountOfEnemy += 1;
-        //        }
-        //    } while (amountOfEnemy <= 3);
-        //}
+        timer += Time.deltaTime;
 
-        //if (transform.position.x == -10)
-        //{
-        //    Destroy(this.gameObject);
-        //}
+        if (timer >= spawnTimer)
+        {   
+           for (int i = 0; i < 1; i++)
+           {
+                Instantiate(Car1);
+                timer = 0f;
+           }
+           
+        }
+
+        secondTimer += Time.deltaTime;
+        if (secondTimer >= deleteTimer)
+        {
+            Destroy(GameObject.Find("FirstLane(Clone)"));
+        }
+
     }
 }
