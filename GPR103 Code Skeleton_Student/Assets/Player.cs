@@ -88,7 +88,12 @@ public class Player : MonoBehaviour
                 }
 
             }
+            if (collision.transform.parent.GetComponent<OverTheRiver>() == null)
+            {
+                print("test test");
+            }
         }
+
     }
 
 }

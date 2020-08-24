@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
        if (gameIsRunning == true)
-        {
+       {
             print("Welcome to the game. Press space to start.");
             print("Press Escape to exit.");
 
@@ -51,6 +51,6 @@ public class GameManager : MonoBehaviour
                 gameIsRunning = false;
                 return;
             }
-        }
+       }
     }
 }
